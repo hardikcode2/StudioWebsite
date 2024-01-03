@@ -1,0 +1,481 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;    color: #fff;
+}
+
+html,body{
+    height: 100%;
+    /* perspective: 800px; */
+    width: 100%;
+}
+
+*::selection{
+    background-color: #fff;
+    color: #e4d52c;
+}
+
+body::-webkit-scrollbar{
+    display: block;
+    width: 8px;
+    background:linear-gradient(#cebd25,#000000d1)
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 50px;
+}
+#cursor{
+    height:20px;
+    width:20px;
+    background-color: #cebd25;
+    border-radius:50%;
+    position: fixed; /*so it is always on screen */
+    z-index: 99; /* which elements are displayed on top of others when they overlap. */
+
+}
+#cursor-blur{
+    height:400px;
+    width:400px;
+    background-color: rgba(150, 193, 30,0.157);;
+    border-radius:50%;
+    position: fixed; /*so it is always on screen */
+    filter:blur(40px);
+    z-index: 9;
+}
+#nav{
+    height: 145px;
+    width:100% ;
+    /* background-color: red; */
+    display: flex;  /*isse saare elements ek hi line mai aa jate*/
+    align-items: center;
+    padding:0 150px ;
+    gap: 50px;
+    position: fixed;
+    justify-content:flex-start ;
+    z-index: 99; /* koi bhi element aange ke liye */
+
+}
+
+#nav img{
+    height: 107%;
+    
+}
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /*poore background mai rkhne ke liye */
+    z-index: -1;   /*kisi ko cheez ko peeche rkhne ke liye */
+    position: fixed;
+}
+#main{
+    position: relative;
+    background-color: rgba(0,0,0,0.37);
+}
+#page1{
+    height:100vh ;
+    width:100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+
+}
+#page1 h1{
+    font-size: 90px;
+    font-weight: 900;
+    position: relative;
+}
+#page1 h1::before{
+    content: "CAPTURE. CREATE. CONNECT.";
+    position: absolute;
+    color: black;
+    top: -5px;
+    left: -5px;
+    -webkit-text-stroke: 2px #c1b11f;
+ 
+
+    z-index: -1;
+}
+#page1 h2{
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+#page1 p{
+    font-size: 20px;
+    font-weight: 500;
+    width: 40%;
+}
+
+#page1 #arrow{
+    height: 180px;
+    width: 180px;
+    background-color: transparent;
+    border: 2px solid #e4d01c;
+    position: absolute;
+    display: flex;
+    left: -2%;
+    bottom: 0%;
+    transition:all ease 0.5s;
+
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+
+#page1 #arrow i{
+    font-size: 50px;
+    font-weight: 100;
+}
+
+#page1 #arrow:hover{
+    scale: 0.4;
+    background-color: #e4d01c;
+}
+#page2{
+    min-height:  100vh;
+    width: 100%;
+    z-index: 10;
+}
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;  /*use of nowrap jisse saare elements ek hi line mai chle */
+    overflow-x: auto;  /* jisse yeh words ke saath screen bhi na bad jaaye */
+    overflow-y:hidden ;
+    position: relative;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display: none;  /*scrollbar hatane ke liye */
+}
+
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; /* jisse lagatar chle*/
+}
+
+#scroller h4{
+    display: inline-block;
+    font-size: 100px;
+    font-weight: 900;
+    font-family: 'Gilroy', sans-serif;
+    margin-right: 10px;
+    transition:all linear 0.5s  ;
+    color: transparent;
+    -webkit-text-stroke: 2px #e4d01c;  /*stroke overlay design banane ke liye upar se */
+}
+
+
+#scroller h4:hover{
+    color: #e4d01c;
+}
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform:translateX(-100%) ;
+    }
+    
+}
+#about-us{
+    height: 60vh;
+    width: 100%;
+    /* background-color: red; */
+    display:flex; 
+    align-items: center; 
+    justify-content: space-around;
+    padding: 0 50px;
+    position: relative;
+    z-index:10 ; 
+    white-space: pre-wrap;
+
+} 
+#about-us img{
+    height: 170px;
+    width: 170px;
+    border-radius: 20px;
+    object-fit: cover;
+    opacity: 80%;
+} 
+#about-us-in{
+    width: 50%;
+    text-align: center;
+    
+
+}
+#about-us-in h3 {
+    font-size:38px ;
+    font-weight: 800;
+    /* margin-bottom: 30px; */
+}
+#about-us-in p{
+    font-size: 20px;
+    line-height: 35px;
+    word-spacing: 3px;
+}
+
+#cards-container{
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:70px;
+    position:relative;
+    z-index: 10;
+}
+.card{    /*whenever we use id in div so we can use # for CSS styling but when we have to work on Class so will use . (dot) */
+    height: 80%;
+    width: 24%;
+    /* background-color: #95C11F; */
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all ease 0.6s;
+
+}
+#card1{
+  background-image: url(https://onehorizonproductions.com/wp-content/uploads/2023/04/6-3-scaled.webp);  
+  
+}
+
+#card2{
+    background-image: url(https://www.weddingeventwala.com/wp-content/uploads/2021/11/Wedding-Drone-Videography-Services-1.jpg);  
+}
+#card3{
+    background-image: url(https://images.pexels.com/photos/11329816/pexels-photo-11329816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);  
+  }
+#overlay{
+    height:100%;
+    width:100%;
+    background-color: #dbde30;
+    padding:30px;
+    padding-top:  70px; 
+    opacity: 0;
+    transition: all ease 0.6s;
+}
+#overlay h4{
+    color: black;
+    font-size: 28px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-bottom: 20px;
+    font-weight: 810;
+}
+
+#overlay p{
+    color: black;
+    font-size: 18px;
+}
+
+.card:hover #overlay{
+    opacity: 1;
+}
+.card:hover{
+    transform: rotate3d(-1,1,0,20deg);
+}
+
+#green-div{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left bottom,rgb(35, 209, 105),#e4d01c);
+
+}
+#green-div h4{
+    width: 48%;
+    line-height: 37px;
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 710; /*font weight 700 ya to 800 isme 710 jesa kch ni hota wo 710 ko 800 ki tarah treat krta hai*/
+
+}
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width:14%;
+}
+
+#page3{
+    height: 100vh;
+    width:100% ;
+    background-color: #000;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+#page3>p{
+    font-size: 33px;
+    font-weight: 700;
+    width: 60%;
+    line-height: 45px;
+    text-align: center;
+}
+#page3 img{
+    position: absolute;
+    height: 60px;
+}
+#page3 #colon1{
+    left: 16%;
+    top: 20%;
+}
+#page3 #colon2{
+    right: 18%;
+    bottom: 23%;
+}
+
+#page4{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    position: relative;
+}
+
+.elem{
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: #dae424;
+    display: flex;
+    color: #000;
+    font-weight: 800;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.5s;
+    font-size: 30px;
+    position: absolute;
+    z-index: 10;
+}
+
+.elem img{
+    width: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1.1;
+ 
+}
+
+.elem:hover h2{
+    color: #fff;
+    background-color: transparent;
+}
+
+.elem:hover img{
+    scale: 1;
+}
+
+#page4 h1{
+    font-size :72px;
+    position: absolute;
+    top: -15%;
+    font-weight: 900;
+    font-family: 'Gilroy', sans-serif;
+    color: #000;
+    -webkit-text-stroke:1px  #fff;
+}
+
+#footer{
+    height: 40vh;
+    width: 100%;
+    background:linear-gradient(to left bottom ,#50cd43 0%,#d1bf1b 70%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 150px;
+    padding: 0 100px;
+}
+
+#footer>img{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+    
+}
+#f1 img{
+    height: 134px;
+  
+    
+}
+
+#f1,#f2,#f3,#f4{
+    width: fit-content;
+    position: relative;
+    z-index: 2;
+}
+
+#f2 h3{
+    font-size: 30px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+#f3 h3{
+    font-size: 30px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+#f4 h4{
+    font-size: 18px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 8px;
+    
+}
+
+#f4 p{
+    background-image: linear-gradient(to right, red, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: 30px;
+    margin-right: 30px;
+    font-weight: 500;
+
+    
+}
+
