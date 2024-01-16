@@ -59,7 +59,8 @@ body::-webkit-scrollbar-thumb{
 }
 
 #nav img{
-    height: 107%;
+/*     height: 107%; */
+    width:350px;
     
 }
 #nav h4{
